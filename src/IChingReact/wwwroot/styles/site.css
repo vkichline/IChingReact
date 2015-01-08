@@ -1,0 +1,9 @@
+﻿body {
+    margin: 1em;
+}
+
+.CoinsComponent img {
+    margin: .5em;
+    height: 5em;
+    width: 5em;
+}

@@ -1,0 +1,9 @@
+{
+    "name": "IChingReact",
+    "private": true,
+    "dependencies": {
+        "react": "~0.12.2"
+    },
+    "exportsOverride": {
+    }
+}

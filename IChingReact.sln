@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22418.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{320FE84A-1D81-40A0-AAC0-7ED2F0F0E528}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IChingReact", "src\IChingReact\IChingReact.kproj", "{1C866C20-4F6A-4516-AEDF-EB312BF152C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC993352-F6E1-40B4-8BAC-5C0386350B5D}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C866C20-4F6A-4516-AEDF-EB312BF152C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C866C20-4F6A-4516-AEDF-EB312BF152C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C866C20-4F6A-4516-AEDF-EB312BF152C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C866C20-4F6A-4516-AEDF-EB312BF152C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C866C20-4F6A-4516-AEDF-EB312BF152C3} = {320FE84A-1D81-40A0-AAC0-7ED2F0F0E528}
+	EndGlobalSection
+EndGlobal
