@@ -18,6 +18,12 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+bower_components/ 
+node_modules/ 
+wwwroot/ 
+DiceApi.sln.ide/ 
+artifacts/ 
+
 
 # Roslyn cache directories
 *.ide/

@@ -8,14 +8,30 @@
     width: 5em;
 }
 
-table.hexagram tr {
-    margin: .25em;
+table.hexagram {
+    border-collapse: collapse;
+    margin: 1em 0 0 2em;
 }
 
-table.hexagram td {
-    margin: 0;
-    padding: 0;
-    height: 1em;
-    width: 4em;
-    background-color: darkblue;
-}
+    table.hexagram td {
+        height: .25em;
+    }
+
+    table.hexagram tr.yin td:nth-of-type(odd),
+    table.hexagram tr.yang td:nth-of-type(odd) {
+        height: 1em;
+        width: 6em;
+        background-color: darkblue;
+    }
+
+    table.hexagram tr.yin td:nth-of-type(even) {
+        height: 1em;
+        width: 1.5em;
+        background-color: inherit;
+    }
+
+    table.hexagram tr.yang td:nth-of-type(even) {
+        height: 1em;
+        width: 1,5em;
+        background-color: darkblue;
+    }
