@@ -17,6 +17,7 @@ table.hexagram {
         height: .25em;
     }
 
+    /* The left and right segments of one line of the the hexagram */
     table.hexagram tr.yin td:nth-of-type(odd),
     table.hexagram tr.yang td:nth-of-type(odd) {
         height: 1em;
@@ -24,14 +25,16 @@ table.hexagram {
         background-color: darkblue;
     }
 
+    /* The center segment of one line of the the hexagram (yin) */
     table.hexagram tr.yin td:nth-of-type(even) {
         height: 1em;
         width: 1.5em;
         background-color: inherit;
     }
 
+    /* The center segment of one line of the the hexagram (yang) */
     table.hexagram tr.yang td:nth-of-type(even) {
         height: 1em;
-        width: 1,5em;
+        width: 1.5em;
         background-color: darkblue;
     }

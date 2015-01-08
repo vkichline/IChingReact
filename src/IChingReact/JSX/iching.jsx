@@ -47,10 +47,18 @@ var Coins = React.createClass({
 //
 var Line = React.createClass({
 	render: function() {
-	console.log(this.props.value);
 		return (<tr className={(0 == this.props.value % 2) ? 'yin' : 'yang'}>
 			<td></td><td></td><td></td>
 		</tr>);
+	}
+});
+
+
+// Spacer Component
+//
+var Spacer = React.createClass({
+	render: function () {
+		return <tr><td colspan='3'></td></tr>;
 	}
 });
 
@@ -70,26 +78,26 @@ var Hexagram = React.createClass({
 		return lines;
 	},
 	render: function () {
-		//console.log(this.props.lines);
-		return (<table className='hexagram'  onClick={this.clickHandler}>
-			<Line value={this.state.lines[5]} />
-			<tr><td colspan='3'></td></tr>
-			<Line value={this.state.lines[4]} />
-			<tr><td colspan='3'></td></tr>
-			<Line value={this.state.lines[3]} />
-			<tr><td colspan='3'></td></tr>
-			<Line value={this.state.lines[2]} />
-			<tr><td colspan='3'></td></tr>
-			<Line value={this.state.lines[1]} />
-			<tr><td colspan='3'></td></tr>
-			<Line value={this.state.lines[0]} />
-		</table>);
+		return (
+			<table className='hexagram'  onClick={this.clickHandler}>
+				<Line value={this.state.lines[5]} />
+				<Spacer />
+				<Line value={this.state.lines[4]} />
+				<Spacer />
+				<Line value={this.state.lines[3]} />
+				<Spacer />
+				<Line value={this.state.lines[2]} />
+				<Spacer />
+				<Line value={this.state.lines[1]} />
+				<Spacer />
+				<Line value={this.state.lines[0]} />
+			</table>
+		);
 	},
 	clickHandler: function (e) {
 		this.setState({lines: this.generateLines()});
 		return false;
 	}
-
 });
 
 
