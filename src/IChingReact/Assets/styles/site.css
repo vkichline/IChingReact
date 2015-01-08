@@ -7,3 +7,15 @@
     height: 5em;
     width: 5em;
 }
+
+table.hexagram tr {
+    margin: .25em;
+}
+
+table.hexagram td {
+    margin: 0;
+    padding: 0;
+    height: 1em;
+    width: 4em;
+    background-color: darkblue;
+}

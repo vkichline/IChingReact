@@ -42,11 +42,30 @@ var Coins = React.createClass({displayName: "Coins",
 });
 
 
+// Line Component
+// Properties:  value (number) [6 - 9]
+//
+var Line = React.createClass({displayName: "Line",
+	render: function() {
+		return (React.createElement("tr", {className: (0 == this.props.value % 2) ? 'even' : 'odd'}, 
+			React.createElement("td", null), React.createElement("td", null), React.createElement("td", null)
+		));
+	}
+});
+
+
 // Hexagram Component
 //
 var Hexagram = React.createClass({displayName: "Hexagram",
 	render: function () {
-		return React.createElement("div", null, "Hexagram");
+		return (React.createElement("table", {className: "hexagram"}, 
+			React.createElement(Line, {value: "6"}), 
+			React.createElement(Line, {value: "7"}), 
+			React.createElement(Line, {value: "8"}), 
+			React.createElement(Line, {value: "9"}), 
+			React.createElement(Line, {value: "8"}), 
+			React.createElement(Line, {value: "7"})
+		));
 	}
 });
 

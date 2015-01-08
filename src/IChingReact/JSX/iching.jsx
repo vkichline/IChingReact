@@ -42,11 +42,30 @@ var Coins = React.createClass({
 });
 
 
+// Line Component
+// Properties:  value (number) [6 - 9]
+//
+var Line = React.createClass({
+	render: function() {
+		return (<tr className={(0 == this.props.value % 2) ? 'even' : 'odd'}>
+			<td></td><td></td><td></td>
+		</tr>);
+	}
+});
+
+
 // Hexagram Component
 //
 var Hexagram = React.createClass({
 	render: function () {
-		return <div>Hexagram</div>;
+		return (<table className='hexagram'>
+			<Line value='6' />
+			<Line value='7' />
+			<Line value='8' />
+			<Line value='9' />
+			<Line value='8' />
+			<Line value='7' />
+		</table>);
 	}
 });
 
