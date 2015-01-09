@@ -64,9 +64,92 @@ var Spacer = React.createClass({
 
 
 // Hexagram Component
-// State: lines[6] (number) [6 - 9]
+// Properties: lines[6] (number) [6 - 9]
 //
 var Hexagram = React.createClass({
+	render: function () {
+		return (
+			<table className='hexagram'>
+				<Line value={this.props.lines[5]} />
+				<Spacer />
+				<Line value={this.props.lines[4]} />
+				<Spacer />
+				<Line value={this.props.lines[3]} />
+				<Spacer />
+				<Line value={this.props.lines[2]} />
+				<Spacer />
+				<Line value={this.props.lines[1]} />
+				<Spacer />
+				<Line value={this.props.lines[0]} />
+			</table>
+		);
+	}
+});
+
+
+// Image Component
+// Properties: hexagram (object)
+//
+var Image = React.createClass({
+	render: function () {
+		return (
+			<div className='part'>
+				<h3>The Image</h3>
+				<pre>{this.props.hexagram.image}</pre>
+			</div>
+		);
+	}
+});
+
+
+// Judgement Component
+// Properties: hexagram (object)
+//
+var Judgement = React.createClass({
+	render: function () {
+		return (
+			<div className='part'>
+				<h3>The Judgement</h3>
+				<pre>{this.props.hexagram.judgement}</pre>
+			</div>
+		);
+	}
+});
+
+
+// Transformation Component
+// Properties: hexagram (object)
+//
+var Transformation = React.createClass({
+	render: function () {
+		return (
+			<div  className='part'>
+				<h3>The Transformation</h3>
+			</div>
+		);
+	}
+});
+
+
+// Title Component
+// Properties: hexagram (object)
+//
+var Title = React.createClass({
+	render: function () {
+		return (
+			<p>
+				<div className='title'>{this.props.hexagram.id}</div>
+				<div className='title'>{this.props.hexagram.cname} - {this.props.hexagram.ename}</div>
+			</p>
+		);
+	}
+});
+
+
+// IChingApp Component
+// State: lines[6] (number) [6 - 9]
+//
+var IChingApp = React.createClass({
 	getInitialState: function() {
 		return {lines: this.generateLines()};
 	},
@@ -77,54 +160,31 @@ var Hexagram = React.createClass({
 		}
 		return lines;
 	},
-	render: function () {
-		return (
-			<table className='hexagram'  onClick={this.clickHandler}>
-				<Line value={this.state.lines[5]} />
-				<Spacer />
-				<Line value={this.state.lines[4]} />
-				<Spacer />
-				<Line value={this.state.lines[3]} />
-				<Spacer />
-				<Line value={this.state.lines[2]} />
-				<Spacer />
-				<Line value={this.state.lines[1]} />
-				<Spacer />
-				<Line value={this.state.lines[0]} />
-			</table>
-		);
+	regen: function () {
+		this.setState(this.generateLines());
 	},
-	clickHandler: function (e) {
-		this.setState({lines: this.generateLines()});
-		return false;
-	}
-});
-
-
-// Info Component
-//
-var Info = React.createClass({
 	render: function () {
-		return <div>Info</div>;
-	}
-});
-
-
-// IChingApp Component
-//
-var IChingApp = React.createClass({
-	render: function () {
+		var hex = hexagrams[this.getHexagramValue()];
 		return (
 			<div>
 				<h1>I Ching App</h1>
 				<Coins />
-				<Hexagram />
-				<h2>The Judgement</h2>
-				<Info />
-				<h2>The Transformation</h2>
-				<Info />
+				<Hexagram lines={this.state.lines} />
+				<Title hexagram={hex} />
+				<Image hexagram={hex} />
+				<Judgement hexagram={hex} />
+				<Transformation hexagram={hex} />
 			</div>
 		);
+	},
+	getHexagramValue: function () {
+		var val = 0;
+		for(var i = 0; i < 6; i++) {
+			if(this.state.lines[i] % 2 != 0) {
+				val += Math.pow(2, i);
+			}
+		}
+		return val;
 	}
 });
 

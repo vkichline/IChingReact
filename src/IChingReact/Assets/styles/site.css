@@ -2,10 +2,28 @@
     margin: 1em;
 }
 
+h1 {
+    margin-left: 2em;
+}
+
+pre {
+    font: normal 1.1em 'Times New Roman';
+}
+
 .CoinsComponent img {
     margin: .5em;
     height: 5em;
     width: 5em;
+}
+
+.title {
+    margin-left: 2em;
+    width: 13em;
+    text-align: center;
+}
+
+.part {
+    margin-left: 2em;
 }
 
 table.hexagram {

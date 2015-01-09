@@ -41,6 +41,13 @@ module.exports = function (grunt) {
                 cwd: "bower_components/react",
                 src: "react.js",
                 dest: "wwwroot/scripts/"
+            },
+            js: {
+                expand: true,
+                flatten: true,
+                cwd: "assets/js",
+                src: "**/*.js",
+                dest: "wwwroot/scripts/"
             }
         }
     });
