@@ -104,7 +104,8 @@ var Hexagram = React.createClass({
 
 
 // Image Component
-// Properties: hexagram (object)
+// Properties:
+//	hexagram (object)
 //
 var Image = React.createClass({
 	render: function () {
@@ -135,23 +136,25 @@ var Judgement = React.createClass({
 
 // Changes Component
 // If any lines are changing, print out the changing message.
-// Properties: hexagram (object)
+// Properties:
+//	hexagram (object)
+//	lines (array of number) [6 - 9]
 //
 var Changes = React.createClass({
 	render: function () {
-		if(this.isChaging) {
+		if(this.isChaging()) {
 			return (
-			<div  className='part'>
+				<div  className='part'>
 					<h3>Changing Lines</h3>
 				</div>
 			);
 		} else {
-			return;
+			return <div></div>;
 		}
 	},
 	isChaging: function() {
 		for(var i = 0; i < 6; i++) {
-			var line = this.props.hexagram[i];
+			var line = this.props.lines[i];
 			if(line == 6 || line == 9) {
 				return true;
 			}
@@ -217,7 +220,7 @@ var IChingApp = React.createClass({
 				<Title hexagram={hex} />
 				<Image hexagram={hex} />
 				<Judgement hexagram={hex} />
-				<Changes hexagram={hex} />
+				<Changes hexagram={hex} lines={this.state.lines} />
 				<Transformation hexagram={hex} />
 			</div>
 		);
