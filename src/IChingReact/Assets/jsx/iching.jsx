@@ -1,4 +1,20 @@
-﻿// Coin Component
+﻿// Utility functions used by different classes:
+
+function getHexagramValue (lines) {
+	// Takes an array[6] of lines (each of which is 6, 7, 8, or 9)
+	// and returns the number of the hexagram it represents
+	var val = 0;
+	for(var i = 0; i < 6; i++) {
+		if(lines[i] % 2 != 0) {
+			val += Math.pow(2, i);
+		}
+	}
+	return val;
+}
+
+
+
+// Coin Component
 // Properties: heads (boolean)
 //
 var Coin = React.createClass({
@@ -153,7 +169,7 @@ var Changes = React.createClass({
 				</div>
 			);
 		} else {
-			return <div></div>;
+			return <div />;
 		}
 	},
 	getChanges: function() {
@@ -172,15 +188,46 @@ var Changes = React.createClass({
 
 // Transformation Component
 // Calculates and shows the transformed hexagram (if any)
-// Properties: oldLines (array of numbers) [6 - 9]
+// Properties:
+//	oldLines (array of numbers) [6 - 9]
 //
 var Transformation = React.createClass({
 	render: function () {
+		var newLines = this.createNewLines(this.props.oldLines);
+		var newHex = getHexagramValue(newLines);
+		var isChanging = (getHexagramValue(this.props.oldLines) !== newHex);
+		var hex = hexagrams[newHex];
 		return (
 			<div  className='part'>
-				<h3>The Transformation</h3>
+				{ isChanging ? 
+					(
+						<div>
+							<h3>The Transformation</h3>
+							<Hexagram lines={newLines} />
+							<Title hexagram={hex} />
+							<Image hexagram={hex} />
+							<Judgement hexagram={hex} />
+						</div>
+					)
+				: <div />}
 			</div>
 		);
+	},
+	createNewLines: function (oldLines) {
+		var newLines = [6];
+		for(var i = 0; i < 6; i++) {
+			switch (oldLines[i]) {
+				case 6:
+				case 7:
+					newLines[i] = 7;
+					break;
+				case 8:
+				case 9:
+					newLines[i] = 8;
+					break;
+			}
+		}
+		return newLines;
 	}
 });
 
@@ -218,28 +265,19 @@ var IChingApp = React.createClass({
 		this.setState(this.generateLines());
 	},
 	render: function () {
-		var hex = hexagrams[this.getHexagramValue()];
+		var hex = hexagrams[getHexagramValue(this.state.lines)];
 		return (
 			<div>
 				<h1>I Ching App</h1>
-				<Coins />
+				{ /* <Coins /> */ }
 				<Hexagram lines={this.state.lines} />
 				<Title hexagram={hex} />
 				<Image hexagram={hex} />
 				<Judgement hexagram={hex} />
 				<Changes hexagram={hex} lines={this.state.lines} />
-				<Transformation hexagram={hex} />
+				<Transformation oldLines={this.state.lines} />
 			</div>
 		);
-	},
-	getHexagramValue: function () {
-		var val = 0;
-		for(var i = 0; i < 6; i++) {
-			if(this.state.lines[i] % 2 != 0) {
-				val += Math.pow(2, i);
-			}
-		}
-		return val;
 	}
 });
 
