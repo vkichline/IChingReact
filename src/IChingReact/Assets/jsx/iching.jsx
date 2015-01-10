@@ -142,30 +142,37 @@ var Judgement = React.createClass({
 //
 var Changes = React.createClass({
 	render: function () {
-		if(this.isChaging()) {
+		var changingLines = this.getChanges();
+		if(changingLines.length > 0) {
 			return (
 				<div  className='part'>
 					<h3>Changing Lines</h3>
+					{changingLines.map(function (item) {
+						return <pre className='changeText'>{item}</pre>;
+					})}
 				</div>
 			);
 		} else {
 			return <div></div>;
 		}
 	},
-	isChaging: function() {
-		for(var i = 0; i < 6; i++) {
+	getChanges: function() {
+		// returns an array of strings of chainging lines only
+		var changes = [];
+		for(var i = 5; i >= 0; i--) {
 			var line = this.props.lines[i];
 			if(line == 6 || line == 9) {
-				return true;
+				changes.push(this.props.hexagram.lines[i]);
 			}
 		}
-		return false;
+		return changes;
 	}
 });
 
 
 // Transformation Component
-// Properties: hexagram (object)
+// Calculates and shows the transformed hexagram (if any)
+// Properties: oldLines (array of numbers) [6 - 9]
 //
 var Transformation = React.createClass({
 	render: function () {

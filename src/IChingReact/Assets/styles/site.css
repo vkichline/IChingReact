@@ -26,6 +26,10 @@ pre {
     margin-left: 2em;
 }
 
+.changeText {
+    margin-bottom: 1em;
+}
+
 table.hexagram {
     border-collapse: collapse;
     margin: 1em 0 0 2em;
