@@ -29,6 +29,7 @@ pre {
 table.hexagram {
     border-collapse: collapse;
     margin: 1em 0 0 2em;
+    font-family: sans-serif;
 }
 
     table.hexagram td {
@@ -50,9 +51,19 @@ table.hexagram {
         background-color: inherit;
     }
 
+    table.hexagram tr.yin.changing td:nth-of-type(even) {
+        text-align: center;
+        color: darkblue;
+    }
+
     /* The center segment of one line of the the hexagram (yang) */
     table.hexagram tr.yang td:nth-of-type(even) {
         height: 1em;
         width: 1.5em;
         background-color: darkblue;
+    }
+
+    table.hexagram tr.yang.changing td:nth-of-type(even) {
+        text-align: center;
+        color: white;
     }

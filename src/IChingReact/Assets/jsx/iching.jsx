@@ -47,8 +47,24 @@ var Coins = React.createClass({
 //
 var Line = React.createClass({
 	render: function() {
-		return (<tr className={(0 == this.props.value % 2) ? 'yin' : 'yang'}>
-			<td></td><td></td><td></td>
+		var cls = '';
+		var cont = '';
+		switch(this.props.value) {
+			case 6:
+				cls = 'yin changing';
+				cont = 'X';
+				break;
+			case 7: cls = 'yang';
+				break;
+			case 8: cls = 'yin';
+				break;
+			case 9:
+				cls = 'yang changing';
+				cont = 'O';
+				break;
+		}
+		return (<tr className={cls}>
+			<td></td><td>{cont}</td><td></td>
 		</tr>);
 	}
 });
@@ -117,6 +133,34 @@ var Judgement = React.createClass({
 });
 
 
+// Changes Component
+// If any lines are changing, print out the changing message.
+// Properties: hexagram (object)
+//
+var Changes = React.createClass({
+	render: function () {
+		if(this.isChaging) {
+			return (
+			<div  className='part'>
+					<h3>Changing Lines</h3>
+				</div>
+			);
+		} else {
+			return;
+		}
+	},
+	isChaging: function() {
+		for(var i = 0; i < 6; i++) {
+			var line = this.props.hexagram[i];
+			if(line == 6 || line == 9) {
+				return true;
+			}
+		}
+		return false;
+	}
+});
+
+
 // Transformation Component
 // Properties: hexagram (object)
 //
@@ -173,6 +217,7 @@ var IChingApp = React.createClass({
 				<Title hexagram={hex} />
 				<Image hexagram={hex} />
 				<Judgement hexagram={hex} />
+				<Changes hexagram={hex} />
 				<Transformation hexagram={hex} />
 			</div>
 		);
