@@ -126,7 +126,7 @@ var Hexagram = React.createClass({
 var Image = React.createClass({
 	render: function () {
 		return (
-			<div className='part'>
+			<div>
 				<h3>The Image</h3>
 				<pre>{this.props.hexagram.image}</pre>
 			</div>
@@ -136,12 +136,13 @@ var Image = React.createClass({
 
 
 // Judgement Component
+// Prints the (multiline) judgement for the selected hexagram.
 // Properties: hexagram (object)
 //
 var Judgement = React.createClass({
 	render: function () {
 		return (
-			<div className='part'>
+			<div>
 				<h3>The Judgement</h3>
 				<pre>{this.props.hexagram.judgement}</pre>
 			</div>
@@ -161,7 +162,7 @@ var Changes = React.createClass({
 		var changingLines = this.getChanges();
 		if(changingLines.length > 0) {
 			return (
-				<div  className='part'>
+				<div>
 					<h3>Changing Lines</h3>
 					{changingLines.map(function (item) {
 						return <pre className='changeText'>{item}</pre>;
@@ -175,7 +176,7 @@ var Changes = React.createClass({
 	getChanges: function() {
 		// returns an array of strings of chainging lines only
 		var changes = [];
-		for(var i = 5; i >= 0; i--) {
+		for(var i = 0; i < 6; i++) {
 			var line = this.props.lines[i];
 			if(line == 6 || line == 9) {
 				changes.push(this.props.hexagram.lines[i]);
@@ -198,15 +199,15 @@ var Transformation = React.createClass({
 		var isChanging = (getHexagramValue(this.props.oldLines) !== newHex);
 		var hex = hexagrams[newHex];
 		return (
-			<div  className='part'>
+			<div>
 				{ isChanging ? 
 					(
 						<div>
 							<h3>The Transformation</h3>
 							<Hexagram lines={newLines} />
 							<Title hexagram={hex} />
-							<Image hexagram={hex} />
 							<Judgement hexagram={hex} />
+							<Image hexagram={hex} />
 						</div>
 					)
 				: <div />}
@@ -240,7 +241,8 @@ var Title = React.createClass({
 		return (
 			<p>
 				<div className='title'>{this.props.hexagram.id}</div>
-				<div className='title'>{this.props.hexagram.cname} - {this.props.hexagram.ename}</div>
+				<div className='title'>{this.props.hexagram.cname}</div>
+				<div className='title'>{this.props.hexagram.ename}</div>
 			</p>
 		);
 	}
@@ -268,12 +270,12 @@ var IChingApp = React.createClass({
 		var hex = hexagrams[getHexagramValue(this.state.lines)];
 		return (
 			<div>
-				<h1>I Ching App</h1>
+				<h1>The I Ching</h1>
 				{ /* <Coins /> */ }
 				<Hexagram lines={this.state.lines} />
 				<Title hexagram={hex} />
-				<Image hexagram={hex} />
 				<Judgement hexagram={hex} />
+				<Image hexagram={hex} />
 				<Changes hexagram={hex} lines={this.state.lines} />
 				<Transformation oldLines={this.state.lines} />
 			</div>

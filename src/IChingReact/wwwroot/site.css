@@ -1,13 +1,18 @@
 ﻿body {
+    font-family: wf_segoe-ui_normal,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Arial,sans-serif;
+    font-size: 1.2em;
+    background-color: #e4eff3;
+    color: #000055;
     margin: 1em;
 }
 
 h1 {
-    margin-left: 2em;
+    margin-left: 1em;
 }
 
 pre {
-    font: normal 1.1em 'Times New Roman';
+    font-family: wf_segoe-ui_normal,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Arial,sans-serif;
+    margin-left: 1em;
 }
 
 .CoinsComponent img {
@@ -17,13 +22,9 @@ pre {
 }
 
 .title {
-    margin-left: 2em;
+    margin-left: 1.5em;
     width: 13em;
     text-align: center;
-}
-
-.part {
-    margin-left: 2em;
 }
 
 .changeText {
@@ -32,7 +33,7 @@ pre {
 
 table.hexagram {
     border-collapse: collapse;
-    margin: 1em 0 0 2em;
+    margin: 1em 0 0 1em;
     font-family: sans-serif;
 }
 
