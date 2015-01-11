@@ -1,0 +1,73 @@
+﻿body {
+    margin: 1em;
+}
+
+h1 {
+    margin-left: 2em;
+}
+
+pre {
+    font: normal 1.1em 'Times New Roman';
+}
+
+.CoinsComponent img {
+    margin: .5em;
+    height: 5em;
+    width: 5em;
+}
+
+.title {
+    margin-left: 2em;
+    width: 13em;
+    text-align: center;
+}
+
+.part {
+    margin-left: 2em;
+}
+
+.changeText {
+    margin-bottom: 1em;
+}
+
+table.hexagram {
+    border-collapse: collapse;
+    margin: 1em 0 0 2em;
+    font-family: sans-serif;
+}
+
+    table.hexagram td {
+        height: .25em;
+    }
+
+    /* The left and right segments of one line of the the hexagram */
+    table.hexagram tr.yin td:nth-of-type(odd),
+    table.hexagram tr.yang td:nth-of-type(odd) {
+        height: 1.2em;
+        width: 6em;
+        background-color: darkblue;
+    }
+
+    /* The center segment of one line of the the hexagram (yin) */
+    table.hexagram tr.yin td:nth-of-type(even) {
+        height: 1.2em;
+        width: 1.5em;
+        background-color: inherit;
+    }
+
+    table.hexagram tr.yin.changing td:nth-of-type(even) {
+        text-align: center;
+        color: darkblue;
+    }
+
+    /* The center segment of one line of the the hexagram (yang) */
+    table.hexagram tr.yang td:nth-of-type(even) {
+        height: 1.2em;
+        width: 1.5em;
+        background-color: darkblue;
+    }
+
+    table.hexagram tr.yang.changing td:nth-of-type(even) {
+        text-align: center;
+        color: white;
+    }

@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         react: {
             files: {
                 expand: true,
-                cwd: 'assets/jsx',
+                cwd: 'assets',
                 src: ['**/*.jsx'],
                 dest: 'wwwroot/scripts',
                 ext: '.js'
@@ -17,23 +17,16 @@ module.exports = function (grunt) {
             html: {
                 expand: true,
                 flatten: true,
-                cwd: "assets/html",
+                cwd: "assets",
                 src: "**/*.html",
                 dest: "wwwroot/"
             },
             css: {
                 expand: true,
                 flatten: true,
-                cwd: "assets/styles",
+                cwd: "assets",
                 src: "**/*.css",
-                dest: "wwwroot/styles"
-            },
-            img: {
-                expand: true,
-                flatten: true,
-                cwd: "assets/img",
-                src: "**/*.*",
-                dest: "wwwroot/img"
+                dest: "wwwroot"
             },
             react: {
                 expand: true,
@@ -45,7 +38,7 @@ module.exports = function (grunt) {
             js: {
                 expand: true,
                 flatten: true,
-                cwd: "assets/js",
+                cwd: "assets",
                 src: "**/*.js",
                 dest: "wwwroot/scripts/"
             }
