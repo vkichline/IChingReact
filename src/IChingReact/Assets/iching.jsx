@@ -257,9 +257,11 @@ var IChingApp = React.createClass({
 		return {lines: this.generateLines()};
 	},
 	generateLines: function () {
+		var coinValues = [6, 7, 7, 8, 7, 8, 8, 9];
 		var lines = [6];
 		for(var i = 0; i < 6; i++) {
-			lines[i] = Math.floor(Math.random() * 4 + 6);
+			var raw = Math.floor(Math.random() * 8);
+			lines[i] = coinValues[raw];
 		}
 		return lines;
 	},
