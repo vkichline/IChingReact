@@ -205,7 +205,7 @@ var Transformation = React.createClass({
 						<div>
 							<h3>The Transformation</h3>
 							<Hexagram lines={newLines} />
-							<Title hexagram={hex} />
+							<TitleBar hexagram={hex} />
 							<Judgement hexagram={hex} />
 							<Image hexagram={hex} />
 						</div>
@@ -236,7 +236,7 @@ var Transformation = React.createClass({
 // Title Component
 // Properties: hexagram (object)
 //
-var Title = React.createClass({
+var TitleBar = React.createClass({
 	render: function () {
 		return (
 			<p>
@@ -275,7 +275,7 @@ var IChingApp = React.createClass({
 				<h1>The I Ching</h1>
 				{ /* <Coins /> */ }
 				<Hexagram lines={this.state.lines} />
-				<Title hexagram={hex} />
+				<TitleBar hexagram={hex} />
 				<Judgement hexagram={hex} />
 				<Image hexagram={hex} />
 				<Changes hexagram={hex} lines={this.state.lines} />

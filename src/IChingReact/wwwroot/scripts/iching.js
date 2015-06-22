@@ -205,7 +205,7 @@ var Transformation = React.createClass({displayName: "Transformation",
 						React.createElement("div", null, 
 							React.createElement("h3", null, "The Transformation"), 
 							React.createElement(Hexagram, {lines: newLines}), 
-							React.createElement(Title, {hexagram: hex}), 
+							React.createElement(TitleBar, {hexagram: hex}), 
 							React.createElement(Judgement, {hexagram: hex}), 
 							React.createElement(Image, {hexagram: hex})
 						)
@@ -236,7 +236,7 @@ var Transformation = React.createClass({displayName: "Transformation",
 // Title Component
 // Properties: hexagram (object)
 //
-var Title = React.createClass({displayName: "Title",
+var TitleBar = React.createClass({displayName: "TitleBar",
 	render: function () {
 		return (
 			React.createElement("p", null, 
@@ -275,7 +275,7 @@ var IChingApp = React.createClass({displayName: "IChingApp",
 				React.createElement("h1", null, "The I Ching"), 
 				/* <Coins /> */ 
 				React.createElement(Hexagram, {lines: this.state.lines}), 
-				React.createElement(Title, {hexagram: hex}), 
+				React.createElement(TitleBar, {hexagram: hex}), 
 				React.createElement(Judgement, {hexagram: hex}), 
 				React.createElement(Image, {hexagram: hex}), 
 				React.createElement(Changes, {hexagram: hex, lines: this.state.lines}), 
